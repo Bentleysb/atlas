@@ -84,6 +84,19 @@ public class CompleteTestRule extends CoreTestRule
     )
     private Atlas atlas2;
 
+    @TestAtlas(
+            // lines
+            lines = {
+                    @Line(id = "1000000", coordinates = { @Loc(value = ONE), @Loc(value = TWO),
+                            @Loc(value = THREE) }),
+                    @Line(id = "2000000", coordinates = { @Loc(value = THREE), @Loc(value = FOUR),
+                            @Loc(value = ONE) }) },
+            // relations
+            relations = { @Relation(id = "1000000", tags = { "type=multipolygon" }, members = {
+                    @Member(id = "1000000", role = "outer", type = "line"),
+                    @Member(id = "2000000", role = "outer", type = "line") }) })
+    private Atlas multipolygonRelationAtlas;
+
     public Atlas getAtlas()
     {
         return this.atlas;
@@ -92,5 +105,10 @@ public class CompleteTestRule extends CoreTestRule
     public Atlas getAtlas2()
     {
         return this.atlas2;
+    }
+
+    public Atlas multipolygonRelationAtlas()
+    {
+        return this.multipolygonRelationAtlas;
     }
 }

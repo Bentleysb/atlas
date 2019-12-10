@@ -35,6 +35,12 @@ public class CompleteRelationTest
     public CompleteTestRule rule = new CompleteTestRule();
 
     @Test
+    public void multipolygonRelationTest()
+    {
+        Assert.assertTrue(CompleteRelation.from(this.rule.multipolygonRelationAtlas().relation(1000000L)).asGeoJsonGeometry().has("type"));
+    }
+
+    @Test
     public void testBloatedEquals()
     {
         final RelationBean members1 = new RelationBean();
