@@ -126,25 +126,25 @@ public class EntityIdentifierGeneratorTest
         final CompleteEdge edge = new CompleteEdge(1L, PolyLine.SIMPLE_POLYLINE,
                 Maps.hashMap("a", "b", "c", "d"), 2L, 3L, Sets.hashSet());
 
-        final long goldenHash1 = 6463671242943641314L;
+        final long goldenHash1 = 5048988145577104130L;
         Assert.assertEquals(goldenHash1,
                 new EntityIdentifierGenerator().generatePositiveIdentifierForEdge(edge));
 
         final CompletePoint point = new CompletePoint(1L, Location.CENTER,
                 Maps.hashMap("a", "b", "c", "d"), Sets.hashSet());
 
-        final long goldenHash2 = 4334702026426103264L;
+        final long goldenHash2 = -3953573715915651759L;
         Assert.assertEquals(goldenHash2, new EntityIdentifierGenerator().generateIdentifier(point));
         Assert.assertEquals(goldenHash2, new EntityIdentifierGenerator.Configuration().useDefaults()
                 .getGenerator().generateIdentifier(point));
 
-        final long goldenHash3 = -2934213421148195810L;
+        final long goldenHash3 = 8931567831099815924L;
         Assert.assertEquals(goldenHash3, new EntityIdentifierGenerator.Configuration().useGeometry()
                 .getGenerator().generateIdentifier(point));
         Assert.assertEquals(goldenHash3, new EntityIdentifierGenerator.Configuration().useDefaults()
                 .excludeTags().excludeRelationMembers().getGenerator().generateIdentifier(point));
 
-        final long goldenHash4 = 3739460904040018219L;
+        final long goldenHash4 = -4249759659413808717L;
         Assert.assertEquals(goldenHash4, new EntityIdentifierGenerator.Configuration().useTags()
                 .getGenerator().generateIdentifier(point));
         Assert.assertEquals(goldenHash4,
@@ -164,7 +164,7 @@ public class EntityIdentifierGeneratorTest
         final CompleteRelation relation1 = new CompleteRelation(1L,
                 Maps.hashMap("a", "b", "c", "d"), Rectangle.MINIMUM, bean1, null, null, null,
                 Sets.hashSet());
-        Assert.assertEquals(6707509058043000459L,
+        Assert.assertEquals(-1246586797257518318L,
                 nonRelationInvariantGenerator.generateIdentifier(relation1));
 
         final CompletePoint point = new CompletePoint(1L, Location.CENTER,
