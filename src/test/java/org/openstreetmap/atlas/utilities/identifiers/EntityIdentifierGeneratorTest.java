@@ -73,7 +73,7 @@ public class EntityIdentifierGeneratorTest
         final CompleteEdge edge = new CompleteEdge(1L, PolyLine.SIMPLE_POLYLINE,
                 Maps.hashMap("a", "b", "c", "d"), 2L, 3L, Sets.hashSet());
 
-        final long goldenHash = 6463671242943641314L;
+        final long goldenHash = 5048988145577104130L;
         Assert.assertEquals(goldenHash,
                 new EntityIdentifierGenerator().generatePositiveIdentifierForEdge(edge));
     }

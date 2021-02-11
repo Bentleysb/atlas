@@ -149,11 +149,11 @@ public class EntityIdentifierGenerator
                 + getTypeSpecificPropertyString(entity);
         UUID entityHash = UUID.nameUUIDFromBytes(entityString.getBytes());
 
-        long shortHash = entityHash.getMostSignificantBits();
+        long shortHash = entityHash.getMostSignificantBits() + entityHash.getLeastSignificantBits();
         while (!isHashSafeToUse(shortHash) || (shortHash < 0 && !allowNegativeIdentifiers))
         {
             entityHash = UUID.nameUUIDFromBytes(entityHash.toString().getBytes());
-            shortHash = entityHash.getMostSignificantBits();
+            shortHash = entityHash.getMostSignificantBits() + entityHash.getLeastSignificantBits();
 
             if (iterations > maximumIterations)
             {
